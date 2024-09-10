@@ -1,0 +1,35 @@
+@use "./colors" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
+
+// reset
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: "NotoSansDisplay";
+}
+
+.special {
+    color: $primary-mid;
+}
+
+p {
+    @include body-copy-mobile;
+}
+
+a,
+a:visited {
+    list-style-type: none;
+    text-decoration: none;
+    color: $primary-dark;
+}
+
+ul {
+    list-style-type: none;
+}

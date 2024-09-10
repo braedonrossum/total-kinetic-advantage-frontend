@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "NotoSansDisplay";
+    font-weight: 400;
+    src:url("/src/assets/fonts/NotoSansDisplay-Regular.ttf")
+            format("truetype");
+}
+
+@font-face {
+    font-family: "NotoSansDisplay";
+    font-weight: 600;
+    src: url("/src/assets/fonts/NotoSansDisplay-Medium.ttf")
+            format("truetype");
+}
+
+@font-face {
+    font-family: "NotoSansDisplay";
+    font-weight: 700;
+    src: url("/src/assets/fonts/NotoSansDisplay-Bold.ttf")
+            format("truetype");
+}
+
+@mixin page-header {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+    font-weight: 700;
+}
+
+@mixin page-header-mobile {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+@mixin section-header {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+}
+
+@mixin section-header-mobile {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+@mixin sub-header {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
+@mixin sub-header-mobile {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+}
+@mixin body-copy {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+}
+@mixin body-copy-mobile {
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+}
+@mixin footer-copy {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+}
+@mixin footer-copy-mobile {
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+}
+@mixin label-btn {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+@mixin label-btn-mobile {
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+
+body {
+    font-family: "NotoSansDisplay", "sans-serif";
+}
