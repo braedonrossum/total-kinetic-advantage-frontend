@@ -1,0 +1,33 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background-color: $primary-mid;
+
+    &__title {
+        @include page-header-mobile;
+        text-align: center;
+    }
+
+    &__logo {
+        width: 100px;
+    }
+
+    &-nav {
+        &__list {
+            display: flex;
+            gap: 2rem;
+
+            &-item{
+
+            }
+        }
+    }
+}
