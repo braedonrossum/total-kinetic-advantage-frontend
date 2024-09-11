@@ -30,8 +30,6 @@ This app is intended for individuals who are looking to start a structured stren
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
-
 -   React
 -   JavaScript
 -   MySQL
@@ -46,17 +44,16 @@ List technologies that will be used in your app, including any libraries to save
 
 ### APIs
 
-List any external sources of data that will be used in your app.
-
 No external APIs will be used
 
 ### Sitemap
 
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
+List the pages of your app with brief descriptions. You can show this visually, or write it out
 
 -   Home page
 -   Program page
 -   Exercise library
+-   Exercise by body part library
 -   Exercise details
 
 ### Mockups
@@ -84,13 +81,13 @@ List the pages of your app with brief descriptions. You can show this visually, 
 
 **Body Part Routes**
 
-**GET /**
+**GET /body**
 
 -   Get a list of body part categories
 
 Parameters:
 
--   body_part: body part from library
+- body_part: body part from library
 
 Response:
 
@@ -107,6 +104,11 @@ Response:
 **GET /body/:id/exercises**
 
 -   Get a list of exercises for a given body part
+
+Parameters:
+    - body_part_id: id for given body part
+
+Response:
 ```
 [
     {
@@ -120,10 +122,11 @@ Response:
 ```
 **Exercise Routes**
 
-**GET /**
+**GET /exercises**
 
--   Get a list of all exercises in the library
+- Get a list of all exercises in the library
 
+Response:
 ```
 [
     {
@@ -137,10 +140,14 @@ Response:
     ...
 ]
 ```
-**GET /:id**
+**GET /exercises/:id**
 
--   Get details on a specific exercise
+- Get details on a specific exercise
 
+Parameters:
+- exercise_id: id for given exercise
+
+Response:
 ```
      {
           name: "Push-up",
@@ -154,14 +161,101 @@ Response:
 
 **Generate Program Route**
 
-**POST /
+**POST /generate**
+- Generate strength training program based on user input
+
+Parameters:
+- frequency: number of days per week
+- difficulty: current fitness level (beginner, intermediate, advanced)
+- exercise_type: goal (gain muscle, fat loss, strength)
+
+Response:
+```
+[
+    {
+        "day": 1,
+        "exercises": [
+            {
+                "name": "Incline Bench Press",
+                "body_part_id": 1
+            },
+            {
+                "name": "Concentration Curl",
+                "body_part_id": 3
+            },
+            {
+                "name": "Leg Press",
+                "body_part_id": 2
+            },
+            {
+                "name": "Overhead Tricep Extension",
+                "body_part_id": 3
+            }
+        ]
+    },
+    {
+        "day": 2,
+        "exercises": [
+            {
+                "name": "Arnold Press",
+                "body_part_id": 6
+            },
+            {
+                "name": "Chest Fly",
+                "body_part_id": 1
+            },
+            {
+                "name": "Hip Thrust",
+                "body_part_id": 7
+            },
+            {
+                "name": "Bent-over Row",
+                "body_part_id": 4
+            }
+        ]
+    }
+]
+```
+
 
 ## Roadmap
+Day 1
+- Create client
+- Create server
+    - express project with needed routes
+- Create Migrations
+- Create data for exercises
+- Create seeds with exercise data
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date.
+Day 2-5
+- Create header and footer
+- Feature: View body part categories
+    - Implement body part library page
+    - Create GET /body endpoint
+
+Day 5-7
+- Feature: View list of exercises for given body part
+    - Implement exercise by body part library
+    - create GET /body/id/exercises route
+
+Day 7-9
+- Feature: View exercise details
+    - Implement exercise details page
+    - create GET /exercises/id route
+
+Day 9-12
+- Feature: Generate strength training program
+    - add form input to home page 
+    - Create POST / route for generating program
+
 
 ---
 
 ## Future Implementations
 
-Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date.
+- Add more exercises
+- Implement login authentication to create user to store generated programs
+- Build your own program functionality
+- Expand workout/program customization
+- Add set/rep ranges to each exercise dependant on users current fitness level/goal
+
