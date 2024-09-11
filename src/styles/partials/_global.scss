@@ -15,10 +15,6 @@
     font-family: "NotoSansDisplay";
 }
 
-.special {
-    color: $primary-mid;
-}
-
 p {
     @include body-copy-mobile;
 }
