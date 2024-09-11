@@ -11,7 +11,7 @@ function Header() {
       </Link>
     <h1 className='header__title'>Total Kinetic Advantage</h1>
     <nav className='header-nav'>
-      <ul className='header-nav__list'>
+      {/* <ul className='header-nav__list'>
         <Link to="/">
         <li className='header-nave__list-item'>
           HOME
@@ -27,7 +27,7 @@ function Header() {
           CONTACT
         </li>
         </Link>
-      </ul>
+      </ul> */}
     </nav>
   </header>
   )
