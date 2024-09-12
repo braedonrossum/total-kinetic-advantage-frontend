@@ -1,0 +1,93 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.home{
+    &__top{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 0rem 2rem 1rem;
+        background-color: $primary-mid;
+
+        &-button{
+            width: 100%;
+            height: 2.5rem;
+            padding-inline: 2rem;
+            border: none;
+            border-radius: 20px;
+            color: black;
+            background-color: $primary-mid;
+            font-weight: 600;
+            font-size: 17px;
+
+            &:hover{
+                background-color: $primary-dark;
+                color: white;
+            }
+        }
+    }
+
+    .program{
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/images/16143058_1761902157461079_30244307551749066_n.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 40vh;
+        padding: 2rem;
+
+        label{
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 6px;
+        }
+
+        &-input{
+            width: 60%;
+            margin-bottom: 1rem;
+            height: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: none;
+            outline: none;
+
+            &:hover {
+                border: 2px solid $secondary-dark;
+                background-image: none;
+                outline: none;
+            }
+            &:focus {
+                border: 2px solid $secondary-dark;               
+                background-image: none;
+                outline: none;
+            }
+
+            &__type{
+                border-radius: 20px;
+            }
+
+            &__button{
+                width: 40%;
+                height: 2.5rem;
+                padding-inline: 2rem;
+                border: none;
+                border-radius: 20px;
+                color: black;
+                background-color: $secondary-dark;
+                font-weight: 600;
+                font-size: 17px;
+
+                &:hover{
+                    background-color: $secondary-mid;
+                }
+            }
+        }
+    }
+}
