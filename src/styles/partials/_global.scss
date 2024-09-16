@@ -15,6 +15,10 @@
     font-family: "NotoSansDisplay";
 }
 
+html {
+    overflow-y: scroll;
+}
+
 p {
     @include body-copy-mobile;
 }

@@ -1,8 +1,12 @@
 import React from 'react'
 
-function ProgramPage() {
+function ProgramPage({programData}) {
+  console.log(programData)
   return (
-    <div>ProgramPage</div>
+    <div>
+
+      <h1>Program Page</h1>
+    </div>
   )
 }
 

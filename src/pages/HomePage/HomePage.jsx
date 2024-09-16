@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 import "./HomePage.scss";
 import { Link } from "react-router-dom";
 
-function HomePage() {
+function HomePage({ setProgramData }) {
     const baseURL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
 
     const [exerciseData, setExerciseData] = useState([]);
     const [formData, setFormData] = useState({
-        frequency: "",
-        difficulty: "",
-        exercise_type: "",
+        frequency: 2,
+        fitnessLevel: "",
+        exerciseType: "",
     });
 
     const getExerciseData = async () => {
@@ -30,6 +30,7 @@ function HomePage() {
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
+        console.log(name, value);
         setFormData({ ...formData, [name]: value });
     };
 
@@ -37,20 +38,26 @@ function HomePage() {
         getExerciseData();
     }, []);
 
+    useEffect(() => {
+        console.log(formData);
+    }, [formData]);
+
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        console.log(formData);
         try {
             const response = await axios.post(
                 `${baseURL}/api/generate`,
                 formData
             );
             setFormData({
-                frequency: "",
-                difficulty: "",
-                exercise_type: "",
+                frequency: 2,
+                fitnessLevel: "",
+                exerciseType: "",
             });
             console.log(response);
-            navigate("/");
+            setProgramData(response.data);
+            navigate("/program");
         } catch (error) {
             console.error("Error generating program:", error);
             alert("Error generating program!");
@@ -59,25 +66,18 @@ function HomePage() {
 
     return (
         <div className="home">
-            <div className="home__top">
-              <Link to="/" className="home__top-link">
-                <button className="home__top-button">Program Generator</button>
-              </Link>
-              <Link to="/body" className="home__top-link">
-                <button className="home__top-button">Exercise Library</button>
-              </Link>
-            </div>
-
             <form className="program" onSubmit={handleFormSubmit}>
                 <label htmlFor="frequency">Days Per Week</label>
                 <input
+                    onChange={handleInputChange}
+                    name="frequency"
                     id="frequency"
                     className="program-input program-input__frequency"
                 />
                 <label>Current Fitness Level</label>
                 <select
                     className="program-input program-input__difficulty"
-                    name="difficulty"
+                    name="fitnessLevel"
                     id="difficulty"
                     value={formData.difficulty}
                     onChange={handleInputChange}
@@ -91,12 +91,15 @@ function HomePage() {
                                 index ===
                                 self.findIndex(
                                     (event) =>
-                                        event.difficulty ===
-                                        exercise.difficulty
+                                        event.difficulty === exercise.difficulty
                                 )
                         )
                         .map((exercise, index) => (
-                            <option key={index} value={exercise.id}>
+                            <option
+                                key={index}
+                                value={exercise.id}
+                                className="difficulty-dropdown"
+                            >
                                 {exercise.difficulty}
                             </option>
                         ))}
@@ -104,7 +107,7 @@ function HomePage() {
                 <label>Goal</label>
                 <select
                     className="program-input program-input__type"
-                    name="exercise_type"
+                    name="exerciseType"
                     id="exercise_type"
                     value={formData.exercise_type}
                     onChange={handleInputChange}
