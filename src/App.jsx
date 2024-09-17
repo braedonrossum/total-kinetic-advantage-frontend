@@ -22,7 +22,7 @@ function App() {
         <Route path='/' element={<HomePage setProgramData={setProgramData} />} />
         <Route path='/body' element={<BodyPartLibrary />} />
         <Route path='/body/:id/exercises' element={<ExerciseLibrary />} />
-        <Route path='/:id/exercises' element={<ExerciseDetails />} />
+        <Route path='/exercises/:id' element={<ExerciseDetails programData={programData} />} />
         <Route path='/program' element={<ProgramPage programData={programData} />} />
       </Routes>
       <Footer />

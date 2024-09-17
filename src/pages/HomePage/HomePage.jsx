@@ -67,6 +67,7 @@ function HomePage({ setProgramData }) {
     return (
         <div className="home">
             <form className="program" onSubmit={handleFormSubmit}>
+                <div className="program-card">
                 <label htmlFor="frequency">Days Per Week</label>
                 <input
                     onChange={handleInputChange}
@@ -79,7 +80,7 @@ function HomePage({ setProgramData }) {
                     className="program-input program-input__difficulty"
                     name="fitnessLevel"
                     id="difficulty"
-                    value={formData.difficulty}
+                    value={formData.fitnessLevel}
                     onChange={handleInputChange}
                 >
                     <option value="" disabled defaultValue hidden>
@@ -109,7 +110,7 @@ function HomePage({ setProgramData }) {
                     className="program-input program-input__type"
                     name="exerciseType"
                     id="exercise_type"
-                    value={formData.exercise_type}
+                    value={formData.exerciseType}
                     onChange={handleInputChange}
                 >
                     <option value="" disabled defaultValue hidden>
@@ -132,6 +133,7 @@ function HomePage({ setProgramData }) {
                         ))}
                 </select>
                 <button className="program-input__button">Generate!</button>
+                </div>
             </form>
         </div>
     );
