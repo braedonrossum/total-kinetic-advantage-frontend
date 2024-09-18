@@ -20,6 +20,9 @@ function Header() {
               <NavLink to="/body" className="header-nav__link">
                 <button className="header-nav__button">Exercise Library</button>
               </NavLink>
+              <NavLink to="/program" className="header-nav__link">
+                <button className="header-nav__button header-nav__button--program">My Program</button>
+              </NavLink>
     </nav>
   </header>
   )
