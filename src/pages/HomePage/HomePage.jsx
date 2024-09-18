@@ -56,6 +56,7 @@ function HomePage({ setProgramData }) {
                 exerciseType: "",
             });
             console.log(response);
+            localStorage.setItem("exerciseProgram", JSON.stringify(response.data));
             setProgramData(response.data);
             navigate("/program");
         } catch (error) {
@@ -86,7 +87,7 @@ function HomePage({ setProgramData }) {
                     <option value="" disabled defaultValue hidden>
                         Please select
                     </option>
-                    {exerciseData
+                    {/* {exerciseData
                         .filter(
                             (exercise, index, self) =>
                                 index ===
@@ -103,7 +104,13 @@ function HomePage({ setProgramData }) {
                             >
                                 {exercise.difficulty}
                             </option>
-                        ))}
+                        ))} */}
+                        {[...new Set(exerciseData.flatMap(exercise => exercise.difficulty.split(", ")))]
+        .map((difficulty, index) => (
+            <option key={index} value={difficulty}>
+                {difficulty}
+            </option>
+        ))}
                 </select>
                 <label>Goal</label>
                 <select
@@ -116,7 +123,7 @@ function HomePage({ setProgramData }) {
                     <option value="" disabled defaultValue hidden>
                         Please select
                     </option>
-                    {exerciseData
+                    {/* {exerciseData
                         .filter(
                             (exercise, index, self) =>
                                 index ===
@@ -130,7 +137,13 @@ function HomePage({ setProgramData }) {
                             <option key={index} value={exercise.id}>
                                 {exercise.exercise_type}
                             </option>
-                        ))}
+                        ))} */}
+                        {[...new Set(exerciseData.flatMap(exercise => exercise.exercise_type.split(", ")))]
+        .map((type, index) => (
+            <option key={index} value={type}>
+                {type}
+            </option>
+        ))}
                 </select>
                 <button className="program-input__button">Generate!</button>
                 </div>
