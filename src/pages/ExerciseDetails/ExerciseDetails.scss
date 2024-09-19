@@ -1,6 +1,63 @@
-iframe {
-    height: 170px;
-    width: 300px;
-    resize: both;
-    overflow: auto;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.exercise-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    @include tablet{
+        flex-direction: row;
+        height: 80vh;
+    }
+
+    &__video{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        gap: 1rem;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 95%;
+    
+        &-iframe {
+            height: 170px;
+            width: 300px;
+            resize: both;
+            overflow: auto;
+        }
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        &-description, &-instructions{
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, .15);  
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 95%;
+            will-change: transform, background-color;
+
+            &:hover{
+                background-color: rgba(255, 255, 255, 0.319);  
+                transform: scale(1.05);
+                border-radius: 20px;
+                border: none;
+            }
+        }
+    }
 }

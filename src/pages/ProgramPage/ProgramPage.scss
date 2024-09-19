@@ -4,66 +4,82 @@
 @use "../../styles/partials/global" as *;
 
 
-.program-page{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-
-    &__title{
+.program{
+    &-title{
+        text-align: center;
     }
 
-    &__day{
-        background-color: #f5f5f5;
-        border: 1px solid #ddd;
-        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.075);
-        width: 95%;
-        padding: 1rem;
-        margin: 0.5rem;
-        border-radius: 20px;
-
-        &-title{
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-    }
-
-    &__list{
+    &-page {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        &-item{
-            width: 100%;
-            border-bottom: 1px solid black;
-            padding: 0.5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        color: white;
+        
+        @include desktop {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        &__day {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 95%;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 20px;
             
+            @include desktop {
+                width: 45%;
+            }
+            
+            &-title {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        &__list {
             display: flex;
             flex-direction: column;
+            gap: 0.5rem;
 
-            &:hover{
-                background-color: #e0e0e0;
-                transform: scale(1.05);
-                border-radius: 20px;
-                border: none;
-            }
-
-            &-details{
+            &-item {
+                width: 100%;
+                border-bottom: 1px solid black;
+                padding: 0.5rem 1rem;
                 display: flex;
-                justify-content: space-between;
-            }
-
-            &-ranges{
-                display: flex;
-                gap: 5px;
-            }
-
-            .exercise-name{
-
-                &:hover{
-                    transform: scale(1.5);
-                    color: $secondary-dark;
+                flex-direction: column;
+                
+                &:hover {
+                    background-color: rgba(194, 210, 234, 0.905);
+                    backdrop-filter: blur(5px);
+                    transform: scale(1.05);
+                    border-radius: 20px;
+                    border: none;
+                    & p, strong{
+                        color: black;
+                    }
+                }
+                
+                &-details {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                
+                &-ranges {
+                    display: flex;
+                    gap: 5px;
+                }
+                
+                .exercise-name {
+                    color: white;
                 }
             }
         }
     }
 }
+    

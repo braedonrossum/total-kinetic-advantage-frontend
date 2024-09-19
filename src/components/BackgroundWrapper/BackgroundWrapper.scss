@@ -1,0 +1,55 @@
+.background-wrapper {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.5s ease;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    &.home-background {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(../../assets/images/16143058_1761902157461079_30244307551749066_n.jpg)
+                no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    &.body-background {
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)
+            ),
+            url(../../assets/images/gym.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    &.exercise-library-background {
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)
+            ),
+            url(../../assets/images/fitness-center.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    &.exercise-details-background {
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)
+            ),
+            url(../../assets/images/bigstock-Closeup-image-of-a-fitness-equ-89073566.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    &.program-background {
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)
+            ),
+            url("../../assets/images/sports-gym-1425117447.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+}
