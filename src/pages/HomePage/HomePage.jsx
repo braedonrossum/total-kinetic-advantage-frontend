@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.scss";
 import { Link } from "react-router-dom";
+import arrowIcon from "../../assets/images/arrow.svg";
 
 function HomePage({ setProgramData }) {
     const baseURL = import.meta.env.VITE_API_URL;
@@ -10,7 +11,7 @@ function HomePage({ setProgramData }) {
 
     const [exerciseData, setExerciseData] = useState([]);
     const [formData, setFormData] = useState({
-        frequency: 2,
+        frequency: 0,
         fitnessLevel: "",
         exerciseType: "",
     });
@@ -44,19 +45,31 @@ function HomePage({ setProgramData }) {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formData);
+
+        const { frequency, fitnessLevel, exerciseType } = formData;
+
+        if (!frequency || !fitnessLevel || !exerciseType) {
+            alert("Please fill out the form completely before submitting.");
+            return;
+        }
+
         try {
             const response = await axios.post(
                 `${baseURL}/api/generate`,
                 formData
             );
             setFormData({
-                frequency: 2,
+                frequency: 0,
                 fitnessLevel: "",
                 exerciseType: "",
             });
-            console.log(response);
-            localStorage.setItem("exerciseProgram", JSON.stringify(response.data));
+            if (!frequency || !fitnessLevel || !exerciseType) {
+                alert("Please fill out form");
+            }
+            localStorage.setItem(
+                "exerciseProgram",
+                JSON.stringify(response.data)
+            );
             setProgramData(response.data);
             navigate("/program");
         } catch (error) {
@@ -69,85 +82,89 @@ function HomePage({ setProgramData }) {
         <div className="home">
             <form className="program" onSubmit={handleFormSubmit}>
                 <div className="program-card">
-                <label htmlFor="frequency">Days Per Week</label>
-                <input
-                    onChange={handleInputChange}
-                    name="frequency"
-                    id="frequency"
-                    className="program-input program-input__frequency"
-                />
-                <label>Current Fitness Level</label>
-                <select
-                    className="program-input program-input__difficulty"
-                    name="fitnessLevel"
-                    id="difficulty"
-                    value={formData.fitnessLevel}
-                    onChange={handleInputChange}
-                >
-                    <option value="" disabled defaultValue hidden>
-                        Please select
-                    </option>
-                    {/* {exerciseData
-                        .filter(
-                            (exercise, index, self) =>
-                                index ===
-                                self.findIndex(
-                                    (event) =>
-                                        event.difficulty === exercise.difficulty
-                                )
-                        )
-                        .map((exercise, index) => (
+                    <label htmlFor="frequency">Days Per Week</label>
+                    <input
+                        onChange={handleInputChange}
+                        name="frequency"
+                        id="frequency"
+                        className="program-input program-input__frequency"
+                    />
+                    <label>Current Fitness Level</label>
+                    <select
+                        className="program-input program-input__difficulty"
+                        name="fitnessLevel"
+                        id="difficulty"
+                        value={formData.fitnessLevel}
+                        onChange={handleInputChange}
+                    >
+                        <option value="" disabled defaultValue hidden>
+                            Please select
+                        </option>
+                        {[
+                            ...new Set(
+                                exerciseData
+                                    .flatMap((exercise) =>
+                                        exercise.difficulty.split(", ")
+                                    )
+                                    .map((difficulty) =>
+                                        difficulty.trim().toLowerCase()
+                                    )
+                            ),
+                        ].map((difficulty, index) => (
                             <option
+                                className="program-input"
                                 key={index}
-                                value={exercise.id}
-                                className="difficulty-dropdown"
+                                value={difficulty}
                             >
-                                {exercise.difficulty}
+                                {difficulty.charAt(0).toUpperCase() +
+                                    difficulty.slice(1)}
                             </option>
-                        ))} */}
-                        {[...new Set(exerciseData.flatMap(exercise => exercise.difficulty.split(", ")))]
-        .map((difficulty, index) => (
-            <option key={index} value={difficulty}>
-                {difficulty}
-            </option>
-        ))}
-                </select>
-                <label>Goal</label>
-                <select
-                    className="program-input program-input__type"
-                    name="exerciseType"
-                    id="exercise_type"
-                    value={formData.exerciseType}
-                    onChange={handleInputChange}
-                >
-                    <option value="" disabled defaultValue hidden>
-                        Please select
-                    </option>
-                    {/* {exerciseData
-                        .filter(
-                            (exercise, index, self) =>
-                                index ===
-                                self.findIndex(
-                                    (event) =>
-                                        event.exercise_type ===
-                                        exercise.exercise_type
+                        ))}
+                    </select>
+                    <label>Goal</label>
+                    <select
+                        className="program-input program-input__type"
+                        name="exerciseType"
+                        id="exercise_type"
+                        value={formData.exerciseType}
+                        onChange={handleInputChange}
+                    >
+                        <option value="" disabled defaultValue hidden>
+                            Please select
+                        </option>
+                        {[
+                            ...new Set(
+                                exerciseData.flatMap((exercise) =>
+                                    exercise.exercise_type.split(", ")
                                 )
-                        )
-                        .map((exercise, index) => (
-                            <option key={index} value={exercise.id}>
-                                {exercise.exercise_type}
+                            ),
+                        ].map((type, index) => (
+                            <option
+                                className="program-input"
+                                key={index}
+                                value={type}
+                            >
+                                {type}
                             </option>
-                        ))} */}
-                        {[...new Set(exerciseData.flatMap(exercise => exercise.exercise_type.split(", ")))]
-        .map((type, index) => (
-            <option key={index} value={type}>
-                {type}
-            </option>
-        ))}
-                </select>
-                <button className="program-input__button">Generate!</button>
+                        ))}
+                    </select>
+                    <button className="program-input__button">Generate!</button>
                 </div>
             </form>
+            <article className="motivation">
+                <h2 className="motivation__hero">
+                    Discover your Total Kinetic Advantage. Complete the form to
+                    begin your journey
+                </h2>
+                <h2 className="motivation__hero-desktop">
+                Unlock your full potential with Total Kinetic Advantage. Let us guide you in creating a personalized fitness program that fits your unique goals and lifestyle. Fill out the form to get started on your journey to a healthier, stronger you
+                </h2>
+                <div class="arrow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </article>
         </div>
     );
 }

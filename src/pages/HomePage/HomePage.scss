@@ -3,21 +3,32 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/global" as *;
 
-.home{
+.home {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+    align-items: center;
 
-    .program{
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/images/16143058_1761902157461079_30244307551749066_n.jpg);
-        background-size: cover;
-        background-position: center;
+    @include desktop{
+        flex-direction: row;
+    }
+
+    .program {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         justify-content: center;
-        height: 65vh;
-        padding: 2rem;
+        padding: 1rem;
+        height: 40vh;
+        width: 100%;
 
-        &-card{
+        @include desktop {
+            align-items: flex-start;
+            width: 50%;
+        }
+
+        &-card {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -25,19 +36,28 @@
             justify-content: center;
             width: 95%;
             padding: 1rem;
-            background-color: $primary-mid;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
             border-radius: 20px;
-            box-shadow: 0 5px 5px $primary-dark;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+            @include tablet {
+                width: 70%;
+            }
+
+            @include desktop {
+                width: 100%;
+            }
         }
 
-        label{
+        label {
             font-size: 20px;
             font-weight: 600;
             color: white;
             margin-bottom: 6px;
         }
 
-        &-input{
+        &-input {
             width: 100%;
             margin-bottom: 1rem;
             height: 2rem;
@@ -45,6 +65,7 @@
             text-align: center;
             border: none;
             outline: none;
+            color: black;
 
             &:hover {
                 border: 2px solid $secondary-dark;
@@ -52,16 +73,16 @@
                 outline: none;
             }
             &:focus {
-                border: 2px solid $secondary-dark;               
+                border: 2px solid $secondary-dark;
                 background-image: none;
                 outline: none;
             }
 
-            &__type{
+            &__type {
                 border-radius: 20px;
             }
 
-            &__button{
+            &__button {
                 width: 50%;
                 height: 2.5rem;
                 border: none;
@@ -71,21 +92,91 @@
                 font-weight: 600;
                 font-size: 17px;
 
-                &:hover{
+                &:hover {
                     background-color: $secondary-mid;
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
                 }
             }
         }
     }
 }
 
-.difficulty-dropdown{
-    padding-left: 0px;
-    border-top-left-radius: 20px;
+.motivation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    height: 500%;
+    @include desktop {
+        width: 40%;
+        gap: 2rem;
+        
+    }
+
+    &__hero{
+        @include desktop{
+            display: none;
+        }
+        &-desktop{
+            display: none;
+            @include desktop{
+                display: block;
+            }
+        }
+    }
+}
+.arrow {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(0deg);
+    cursor: pointer;
+
+    @include desktop{
+        transform: rotate(90deg);
+    }
 }
 
-#hero-video{
-    position: fixed;
-    z-index: -1;
-    width: 100%;
+.arrow span {
+    display: block;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-bottom: 5px solid $secondary-dark;
+    border-right: 5px solid $secondary-dark;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+
+    @include tablet{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
 }

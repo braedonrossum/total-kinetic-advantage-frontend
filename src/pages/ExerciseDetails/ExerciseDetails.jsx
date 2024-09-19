@@ -26,25 +26,29 @@ function ExerciseDetails() {
     }, [id]);
     console.log(exerciseData.video);
     return (
-        <div>
+        <div className="exercise-details">
+            <div className="exercise-details__video">
             <h1>{exerciseData.name}</h1>
-            <div className="exercise-video-container">
-            <iframe className="exercise-video-container__item"
-                // width="396"
-                // height="223"
+            <iframe className="exercise-details__video-iframe"
                 src={`https://www.youtube.com/embed/${exerciseData.video}?autoplay=1&mute=1&showinfo=0&controls=0&loop=1&playlist=${exerciseData.video}&modestbranding=1&rel=0`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
             ></iframe>
             </div>
+            <section className="exercise-details__info">
+            <article className="exercise-details__info-description">
             <h2>
                 Description
                 <p>{exerciseData.description}</p>
             </h2>
+            </article>
+            <article className="exercise-details__info-instructions">
             <h2>
                 Instructions
                 <p>{exerciseData.instructions}</p>
             </h2>
+            </article>
+            </section>
         </div>
     );
 }
