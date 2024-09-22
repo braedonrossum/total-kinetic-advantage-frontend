@@ -12,7 +12,6 @@
 
     @include tablet{
         flex-direction: row;
-        height: 80vh;
     }
 
     &__video{
@@ -49,7 +48,7 @@
             backdrop-filter: blur(5px);
             border-radius: 20px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            width: 95%;
+            width: 90%;
             will-change: transform, background-color;
 
             &:hover{
