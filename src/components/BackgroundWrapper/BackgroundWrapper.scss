@@ -1,10 +1,11 @@
 .background-wrapper {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     transition: background 0.5s ease;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    padding-bottom: 2rem;
 
     &.home-background {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
