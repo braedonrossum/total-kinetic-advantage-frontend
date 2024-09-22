@@ -34,10 +34,12 @@ function ExerciseDetails() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
             ></iframe> */}
-            <video width="100%" height="100%" controls autoPlay loop>
-  <source src={exerciseData.video} type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+            {exerciseData.video && (
+    <video width="100%" height="100%" controls autoPlay loop>
+        <source src={exerciseData.video} type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+)}
             </div>
             <section className="exercise-details__info">
             <article className="exercise-details__info-description">
