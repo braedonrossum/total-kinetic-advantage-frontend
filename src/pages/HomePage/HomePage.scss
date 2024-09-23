@@ -37,9 +37,9 @@
             width: 95%;
             padding: 1rem;
             background-color: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            backdrop-filter: blur(.3125rem);
+            border-radius: 1.25rem;
+            box-shadow: rgba(0, 0, 0, 0.35) 0rem .3125rem .9375rem;
 
             @include tablet {
                 width: 70%;
@@ -51,46 +51,46 @@
         }
 
         label {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 600;
             color: white;
-            margin-bottom: 6px;
+            margin-bottom: .375rem;
         }
 
         &-input {
             width: 100%;
             margin-bottom: 1rem;
             height: 2rem;
-            border-radius: 20px;
+            border-radius: 1.25rem;
             text-align: center;
             border: none;
             outline: none;
             color: black;
 
             &:hover {
-                border: 2px solid $secondary-dark;
+                border: .125rem solid $secondary-dark;
                 background-image: none;
                 outline: none;
             }
             &:focus {
-                border: 2px solid $secondary-dark;
+                border: .125rem solid $secondary-dark;
                 background-image: none;
                 outline: none;
             }
 
             &__type {
-                border-radius: 20px;
+                border-radius: 1.25rem;
             }
 
             &__button {
                 width: 50%;
                 height: 2.5rem;
                 border: none;
-                border-radius: 20px;
+                border-radius: 1.25rem;
                 color: black;
                 background-color: $secondary-dark;
                 font-weight: 600;
-                font-size: 17px;
+                font-size: 1.0625rem;
 
                 &:hover {
                     background-color: $secondary-mid;
@@ -98,7 +98,7 @@
 
                 &:active {
                     transform: scale(0.98);
-                    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+                    box-shadow: .1875rem .125rem 1.375rem .0625rem rgba(0, 0, 0, 0.24);
                 }
             }
         }
@@ -137,6 +137,7 @@
     transform: translate(-50%, -50%);
     transform: rotate(0deg);
     cursor: pointer;
+    margin-bottom: 2rem;
 
     @include desktop{
         transform: rotate(90deg);
