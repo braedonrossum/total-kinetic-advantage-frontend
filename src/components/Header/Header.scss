@@ -1,0 +1,99 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    @include desktop {
+        padding-inline: 4rem;
+    }
+
+    &__logo-container {
+        display: flex;
+    }
+
+    &__title {
+        @include page-header-mobile;
+        color: white;
+        display: inline-block;
+    }
+
+    &__logo {
+        margin-top: 1rem;
+        width: 6.875rem;
+        height: 6.25rem;
+    }
+
+    &-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        gap: 0.5rem;
+        @include tablet {
+            flex-direction: row;
+        }
+
+        &__button {
+            width: 100%;
+            height: 2.5rem;
+            padding-inline: 2rem;
+            border: none;
+            border-radius: 1.25rem;
+            color: white;
+            background-color: transparent;
+            font-weight: 600;
+            font-size: 1.0625rem;
+            cursor: pointer;
+            @include tablet {
+                padding-inline: 1rem;
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(5px);
+                color: white;
+            }
+
+            &--program:hover {
+                background-color: rgba(194, 210, 234, 0.807);
+                backdrop-filter: blur(5px);
+            }
+
+            &:active{
+                transform: scale(0.98); 
+                box-shadow: .1875rem .125rem 1.375rem .0625rem rgba(0, 0, 0, 0.24); 
+            }
+        }
+    }
+}
+
+.span {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 400;
+    width: 0;
+    transition: width 0.4s linear;
+    vertical-align: bottom;
+
+    .header__logo-container:hover & {
+        width: 6.25rem;
+    }
+
+    &.reverse {
+        width: 0;
+        transition: width 0.4s linear;
+    }
+}

@@ -1,0 +1,183 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/global" as *;
+
+.home {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    @include desktop{
+        flex-direction: row;
+    }
+
+    .program {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem;
+        height: 40vh;
+        width: 100%;
+
+        @include desktop {
+            align-items: flex-start;
+            width: 50%;
+        }
+
+        &-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            width: 95%;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(.3125rem);
+            border-radius: 1.25rem;
+            box-shadow: rgba(0, 0, 0, 0.35) 0rem .3125rem .9375rem;
+
+            @include tablet {
+                width: 70%;
+            }
+
+            @include desktop {
+                width: 100%;
+            }
+        }
+
+        label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: .375rem;
+        }
+
+        &-input {
+            width: 100%;
+            margin-bottom: 1rem;
+            height: 2rem;
+            border-radius: 1.25rem;
+            text-align: center;
+            border: none;
+            outline: none;
+            color: black;
+
+            &:hover {
+                border: .125rem solid $secondary-dark;
+                background-image: none;
+                outline: none;
+            }
+            &:focus {
+                border: .125rem solid $secondary-dark;
+                background-image: none;
+                outline: none;
+            }
+
+            &__type {
+                border-radius: 1.25rem;
+            }
+
+            &__button {
+                width: 50%;
+                height: 2.5rem;
+                border: none;
+                border-radius: 1.25rem;
+                color: black;
+                background-color: $secondary-dark;
+                font-weight: 600;
+                font-size: 1.0625rem;
+
+                &:hover {
+                    background-color: $secondary-mid;
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                    box-shadow: .1875rem .125rem 1.375rem .0625rem rgba(0, 0, 0, 0.24);
+                }
+            }
+        }
+    }
+}
+
+.motivation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    height: 500%;
+    @include desktop {
+        width: 40%;
+        gap: 2rem;
+        
+    }
+
+    &__hero{
+        @include desktop{
+            display: none;
+        }
+        &-desktop{
+            display: none;
+            @include desktop{
+                display: block;
+            }
+        }
+    }
+}
+.arrow {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(0deg);
+    cursor: pointer;
+    margin-bottom: 2rem;
+
+    @include desktop{
+        transform: rotate(90deg);
+    }
+}
+
+.arrow span {
+    display: block;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-bottom: 5px solid $secondary-dark;
+    border-right: 5px solid $secondary-dark;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+
+    @include tablet{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
