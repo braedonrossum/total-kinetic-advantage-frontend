@@ -12,7 +12,10 @@
 
     @include tablet{
         flex-direction: row;
+        padding: 1rem;
     }
+
+    @include desktop{}
 
     &__video{
         display: flex;
@@ -22,16 +25,21 @@
         padding: 1rem;
         gap: 1rem;
         background-color: rgba(255, 255, 255, .15);  
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(.3125rem);
         border-radius: 20px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0rem .3125rem .9375rem;
         width: 95%;
     
         &-iframe {
-            height: 170px;
-            width: 300px;
+            height: 10.625rem;
+            width: 18.75rem;
             resize: both;
             overflow: auto;
+
+            @include desktop{
+                width: 43.75rem;
+                height: 24.6875rem;
+            }
         }
     }
 
@@ -45,16 +53,16 @@
         &-description, &-instructions{
             padding: 1rem;
             background-color: rgba(255, 255, 255, .15);  
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            backdrop-filter: blur(.3125rem);
+            border-radius: 1.25rem;
+            box-shadow: rgba(0, 0, 0, 0.35) 0rem .3125rem .9375rem;
             width: 90%;
             will-change: transform, background-color;
 
             &:hover{
                 background-color: rgba(255, 255, 255, 0.319);  
                 transform: scale(1.05);
-                border-radius: 20px;
+                border-radius: 1.25rem;
                 border: none;
             }
         }
