@@ -29,17 +29,11 @@ function ExerciseDetails() {
         <div className="exercise-details">
             <div className="exercise-details__video">
             <h1>{exerciseData.name}</h1>
-            {/* <iframe className="exercise-details__video-iframe"
+            <iframe className="exercise-details__video-iframe"
                 src={`https://www.youtube.com/embed/${exerciseData.video}?autoplay=1&mute=1&showinfo=0&controls=0&loop=1&playlist=${exerciseData.video}&modestbranding=1&rel=0`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-            ></iframe> */}
-            {exerciseData.video && (
-    <video width="100%" height="100%" controls autoPlay loop>
-        <source src={exerciseData.video} type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
-)}
+            ></iframe>
             </div>
             <section className="exercise-details__info">
             <article className="exercise-details__info-description">
