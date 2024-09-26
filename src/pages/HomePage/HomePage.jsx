@@ -148,7 +148,10 @@ function HomePage({ setProgramData }) {
                             </option>
                         ))}
                     </select>
-                    <button className="program-input__button">Generate!</button>
+                    <button className="program-input__button"
+                    onClick={() => {
+                        window.scroll(0, 1);
+                    }}>Generate!</button>
                 </div>
             </form>
             <article className="motivation">

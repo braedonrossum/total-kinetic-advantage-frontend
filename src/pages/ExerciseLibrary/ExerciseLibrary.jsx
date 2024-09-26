@@ -32,7 +32,10 @@ function ExerciseLibrary() {
             <div className="body-part-container">
         {bodyPartExerciseData.map((exercise) => (
           <Link to={`/exercises/${exercise.id}`}
-            className="body-part-card" key={exercise.id}>
+            className="body-part-card" key={exercise.id}
+            onClick={() => {
+              window.scroll(0, 1);
+          }}>
               <h2>{exercise.name}</h2>
           </Link>
         ))}
