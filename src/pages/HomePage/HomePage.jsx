@@ -80,7 +80,7 @@ function HomePage({ setProgramData }) {
 
     return (
         <div className="home">
-            <form className="program" onSubmit={handleFormSubmit}>
+            <form className="program" onSubmit={handleFormSubmit} netlify>
                 <div className="program-card">
                     <label htmlFor="frequency">Days Per Week</label>
                     <input
