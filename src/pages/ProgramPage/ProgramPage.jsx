@@ -31,6 +31,9 @@ function ProgramPage({ programData }) {
                                 {day.exercises.map(
                                     (exercise, exerciseIndex) => (
                                         <li
+                                        onClick={() => {
+                                            window.scroll(0, 1);
+                                        }}
                                             key={exerciseIndex}
                                             className="program-page__list-item"
                                         >
