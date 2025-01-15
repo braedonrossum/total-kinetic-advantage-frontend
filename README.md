@@ -1,4 +1,4 @@
-`# Total Kinetic Advantage - Frontend
+# Total Kinetic Advantage - Frontend
 
 The **Total Kinetic Advantage** application helps users generate personalized fitness programs based on their fitness level, desired frequency, and goals. This repository contains the React-based frontend that powers the user interface and interactions.
 
@@ -50,9 +50,6 @@ The frontend interacts with the [Total Kinetic Advantage Backend](https://github
 
 ## Project Structure
 
-bash
-
-Copy code
 
 `src/
 ├── components/        # Reusable UI components
