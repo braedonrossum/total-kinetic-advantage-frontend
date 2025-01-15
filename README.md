@@ -50,7 +50,7 @@ The frontend interacts with the [Total Kinetic Advantage Backend](https://github
 
 ## Project Structure
 
-
+```
 src/
 ├── components/        # Reusable UI components
 ├── pages/             # Page-level components
@@ -58,7 +58,7 @@ src/
 ├── styles/            # SCSS styles
 ├── assets/            # Images and static files
 └── App.js             # Main application file
-
+```
 
 ## Technologies Used
 
