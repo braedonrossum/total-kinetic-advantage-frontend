@@ -75,10 +75,6 @@ Contributions are welcome! To contribute:
 2.  Create a new branch for your feature or bugfix.
 3.  Commit your changes and open a pull request.
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
 ----------
 
 For more information, visit the [backend repository](https://github.com/braedonrossum/total-kinetic-advantage-backend).
